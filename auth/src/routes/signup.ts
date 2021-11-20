@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 import { BadRequestError } from '../errors/bad-request-error';
+import { DatabaseConnectionError } from '../errors/database-connection-error';
 import { RequestValidationError } from '../errors/request-validation-error';
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.post(
 
 		const { email, password } = req.body;
 		console.log('creating a user...');
-		throw new Error('Error connecting to database');
+		throw new DatabaseConnectionError();
 		res.status(201).send({});
 	}
 );
