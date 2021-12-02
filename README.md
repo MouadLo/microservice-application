@@ -2,8 +2,8 @@
 
 ## Services
 
-Auth: Everything related to user signup/signin/signout
-Tickets: Ticket creation/editing. Know whether a ticker can be updated.
-Orders: Order creation/editing.
-Expiration: Watches for orders to be created cancels them after 15 minutes.
-Payments: Handles credit card payments. Cancels orders if payments fails, completes if payment succeeds.
+Auth: Everything related to user signup/signin/signout <br />
+Tickets: Ticket creation/editing. Know whether a ticker can be updated. <br />
+Orders: Order creation/editing. <br />
+Expiration: Watches for orders to be created cancels them after 15 minutes. <br />
+Payments: Handles credit card payments. Cancels orders if payments fails, completes if payment succeeds. <br />
