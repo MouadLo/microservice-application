@@ -7,6 +7,8 @@ import {
 	NotAuthorizedError,
 } from '@mlproducts/common';
 import { Ticket } from '../models/ticket';
+import { TicketUpdatededPublisher } from '../events/publihsers/ticket-updated-publisher';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 
@@ -36,6 +38,13 @@ router.put(
 			price: req.body.price,
 		});
 		await ticket.save();
+
+		await new TicketUpdatededPublisher(natsWrapper.client).publish({
+			id: ticket.id,
+			title: ticket.title,
+			price: ticket.price,
+			userId: ticket.userId,
+		});
 
 		res.send(ticket);
 	}
