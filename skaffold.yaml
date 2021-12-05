@@ -24,8 +24,16 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
-    - image: mouadlousimi/products
-      context: products
+    - image: mouadlousimi/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: mouadlousimi/orders
+      context: orders
       docker:
         dockerfile: Dockerfile
       sync:
